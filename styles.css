@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+:root {
+    --background-color: #e6a587
+}
+html {
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+}
+/** HEADER **/
+.header {
+    min-height: 100%;
+    background-color: var(--background-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 4px solid black;
+    padding: 4px;
+}
+.header img {
+    width: 250px;
+    height: 250px;
+}
+.header h1 {
+    font-size: 4rem;
+    font-family: "Pacifico", cursive;
+}
+
+nav {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+}
+nav ul {
+    display: flex;
+    flex-direction: row;
+}
+nav ul li {
+    list-style: none;
+    margin-right: 5px;
+}
+.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.social {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100px;
+    margin: 0 auto;
+}
+.social img {
+    width: 20px;
+    height: 20px; 
+}
+
+@media (max-width: 560px) {
+    .header h1 {
+        font-size: 3rem;
+        margin-top: 35px;
+    }
+    
+}
+
+/** MAIN **/
+.main {
+    width: 95%;
+    margin: 0 auto;
+    padding: 50px 2px;
+    min-height: 100%;
+}
+.main h1 {
+    margin-top: 10px;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.index {
+    display: flex;
+    flex-direction: row;
+}
+.two-thirds {
+    width: 66%;
+}
+.one-third {
+    width: 33%;
+}
+.text-center {
+    text-align: center;
+}
+.about {
+    line-height: 1.4rem;
+}
+.about h1 {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.blog ul {
+    list-style-type: none;
+}
+.blog li {
+    margin: 5px;
+}
+
+@media only screen and (max-width: 560px) {
+    .one-third, .two-thirds {
+        width: 100%;
+    }
+    .index {
+        flex-direction: column;
+    }
+}
+/** Carousel adapted from https://codepen.io/kelly0524/pen/qBOgyMp but mostly written by me**/
+#carousel {
+    min-height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.carousel-wrapper {
+    position: relative;
+}
+
+.btn__icon {
+    transition: all 0.3s;
+    height: 50px;
+    width: 50px;
+}
+
+.btn__icon:hover {
+    height: 55px;
+    width: 55px;
+}
+
+.slide {
+    width: 600px;
+    overflow: hidden;
+}
+
+#slide__box {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    overflow: hidden;
+    list-style-type: none;
+    position: relative;
+}
+.slide__each {
+    min-width: 600px;
+    height: 500px;
+    position: relative;
+    left: 0;
+    transition: left 0.5s;
+}
+
+.first { 
+    background: url("./images/cupcake1.jpg");
+    background-size: cover;
+ }
+.second { 
+    background: url("./images/cupcake2.jpg"); 
+    background-size: cover;
+}
+.third { 
+    background: url("./images/cupcake3.jpg"); 
+    background-size: cover;
+}
+.pagination {
+    width: 120px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+}
+.pagination__dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.pagination__dot.on {
+    transform: scale(1.4);
+    margin-top: -1px;
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+
+@media only screen and (max-width: 560px) {
+    #carousel {
+        width: 100%;
+    }
+    .slide, #slidebox, .slide__each {
+        width: 300px;
+        height: 300px;
+    }
+    .slide__each {
+        background-size: contain;
+    }
+}
+
+/** FOOTER **/
+
+.footer {
+    height: 150px;
+    background-color: var(--background-color);
+}
+
+.footer p {
+    line-height: 151px;
+    margin-left: 20px;
+}
+
+/** ABOUT **/ 
+.left, .right {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+}
+.row {
+    max-height: 300px;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+
+.content {
+    max-height: 300px;
+    overflow: scroll;
+}
+.about p {
+    line-height: 2rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .left, .right {
+        min-width: 100%;
+    }
+    .row {
+        min-height: 700px;
+        margin-bottom: 0px;
+    }
+}
+
+.menu-item {
+    width: 50%;
+    margin: 25px auto;
+    height: 100%;
+}
+.menu-item img {
+    width: 250px;
+    height: 250px;
+}
+.menu-item .description {
+    width: 50%;
+    float: right;
+}
+.menu-item:hover {
+    border: 1px solid black;
+}
+
+.menu button {
+    width: 100px;
+    height: 70px;
+    background-color: rgb(175, 232, 245);
+    border: none;
+    box-shadow: 5px 5px 5px;
+    position: relative;
+    right: 5px;
+    top: 5px;
+    float: right;
+}
+@media only screen and (max-width: 800px) {
+    .menu-item {
+        width: 96%;
+    }
+}
+
+@media only screen and (max-width:560px) {
+    .menu-item img {
+        width: 200px;
+        height: 200px;
+    }
+    .menu-item .description {
+        font-size: 0.8rem;
+    }
+}
+
+/** LOCATION **/
+.location form {
+    width: 50%;
+}
+.location form div {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 560px) {
+    .location form {
+        width: 100%;
+    }
+    #map {
+        width: 100% !important;
+    }
+}

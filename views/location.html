@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="./scripts/location.js"></script>
+    <title>About Hyattsville Bakery</title>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a> /</li>
+                    <li><a href="about">About</a> /</li>
+                    <li><a href="menu">Menu</a> /</li>
+                    <li><a class="active" href="location">Location</a></li>
+                </ul>
+            </nav>
+            <h1>Hyattsville Bakery</h1>
+        </div>
+        <div class="main location">
+            <h1>Our Location</h1>
+            <div id="map" style="width: 80%; height: 300px"></div>
+            <h1>Contact Us</h1>
+            <p id="success"></p>
+            <form id="location">
+                <p id="errors"></p>
+                <div>
+                    <label for="from">From: </label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div>
+                    <label for="message">Message: </label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="footer">
+            <p>Website designed by Corey Cunningham &copy; 2020</p>
+        </div>
+    </div>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2xnY72LVrkpZb7H2lpplVd-SaGjb0gz8&callback=initMap">
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "coreys_portfolio_project",
+  "version": "1.0.0",
+  "description": "website that i made for cs 290",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "js",
+    "css",
+    "html",
+    "node",
+    "express",
+    "sqlite3"
+  ],
+  "author": "corey cunningham",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "multer": "^1.4.2",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

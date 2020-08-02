@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
+    <style>
+        body {
+            min-height: 70vh;
+            min-width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction:column;
+        }
+        form div {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 20px;
+            padding: 3px;
+        }
+        input {
+            width: 200px;
+            margin-left: auto;
+        }
+        label {
+            width: 90px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Log in</h1>
+    <p id="error"></p>
+    <form id="form">
+        <div>
+            <label>Username: </label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+            <label>Password: </label>
+            <input type="password" name="password" id="password">
+        </div>
+        <input type="submit" value="Login">
+    </form>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const form = document.getElementById("form");
+            const username = document.getElementById("username");
+            const password= document.getElementById("password");
+            const error = document.getElementById("error");
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const body = JSON.stringify({ password: password.value , username: username.value });
+                const headers = new Headers();
+                headers.append("Content-Type", "application/json");
+                const request = new Request("/login", 
+                    { method: "POST", headers, body });
+
+                try {
+                    const response = await fetch(request); 
+                    const data = await response.json();
+                    if (data.status != "success") {
+                        error.innerText = data.msg 
+                    } else {
+                        window.location.href = "/admin";
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
+            })
+        });
+    </script>
+</body>
+</html>

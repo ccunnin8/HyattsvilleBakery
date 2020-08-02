@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <title id="page-title"></title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a> /</li>
+                    <li><a href="/about">About</a> /</li>
+                    <li><a href="/menu">Menu</a> /</li>
+                    <li><a href="/location">Location</a></li>
+                </ul>
+            </nav>
+            <h1>Hyattsville Bakery</h1>
+        </div>
+        <div class="main">
+            <p id="error"></p>
+            <h1 id="title"></h1>
+            <img src="" alt="all photos are stock images from pexels.com" id="img">
+            <p id="content"></p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const error = document.getElementById("error");
+            const title = document.getElementById("title");
+            const pageTitle = document.getElementById("page-title");
+            const img = document.getElementById("img");
+            const content = document.getElementById("content");
+
+            const blogId =  1 * window.location.href.split("/").splice(-1);
+            const body = JSON.stringify({ id: blogId });
+
+            const headers = new Headers();
+            headers.append("Content-Type", "application/json");
+
+            const request = new Request("/blog", { method: "POST", headers, body });
+
+            fetch(request).then((res) => {
+                res.json().then((data) => {
+                    if (data.status == "success") {
+                        pageTitle.innerText = data.blog.title;
+                        title.innerText = data.blog.title;
+                        img.setAttribute("src", `../images/${data.blog.img}`);
+                        content.innerText = data.blog.content;
+                    } else {
+                        error.innerText = data.msg;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
