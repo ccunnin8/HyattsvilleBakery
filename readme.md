@@ -8,7 +8,7 @@ This project is a fictious website for a bakery that also includes a blog. It us
 
 ## To run this site 
 This project was built using node v13.3.0
-To install the necessary dependencies please run `npm init`
+To install the necessary dependencies please run `npm install`
 To run the development server run `npm start` 
 By default the website will be served on localhost:3000 
 
