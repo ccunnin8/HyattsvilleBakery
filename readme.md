@@ -12,6 +12,9 @@ To install the necessary dependencies please run `npm init`
 To run the development server run `npm start` 
 By default the website will be served on localhost:3000 
 
+## To see the site live:
+https://nameless-ravine-87631.herokuapp.com
+
 ## Routes 
 
 "/": 
